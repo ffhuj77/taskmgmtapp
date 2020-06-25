@@ -13,10 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// displays index page
-Route::get('/', function () {
-    return view('index');
-});
-
+// displays index page and shows all projects
+Route::get('/', "ProjectController@listProjects");
+// retrives a page to add a new project
+Route::get('/projects/add', "ProjectController@addProject");
 // retrieves project details via wildcard ID
-Route::get('/project/{id}', "ProjectController@showProject");
+Route::get('/projects/{id}', "ProjectController@showProject");
+// retrieves the page to add task to a specific project
+Route::get('/projects/{id}/task/add',"TaskController@addTask");
+
+
+// uses post request to add new task for a project
+Route::post('/projects/{id}/task/add',"TaskController@storeTask");
+// uses post request to add new project
+Route::post('/projects/add', "ProjectController@storeProject");
+
+
+// uses put request to update task status
+Route::put('/tasks/{id}', "TaskController@updateTask");

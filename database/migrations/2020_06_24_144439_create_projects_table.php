@@ -18,7 +18,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string('project_name',225);
             $table->text('project_description');
-            $table->timestamp('added_on');
+            $table->timestamp('created_at');
         });
 
         // sets auto_increment start at 1001

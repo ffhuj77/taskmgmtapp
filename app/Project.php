@@ -6,16 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    // to avoid Illuminate\Database\Eloquent\MassAssignmentException
+    protected $fillable = ['project_name','project_description'];
 
-    public static function getProject($id)
-    {
-      return Self::where('id',$id)->firstOrFail();
-    }
+    // to override laravel created_at & updated_at
+    public $timestamps = false;
 
+    /*
+    *   to get all projects sorted by newest created project
+    */
     public static function getAllProjects()
     {
-
+        return Self::latest()->get();
     }
+
 
     public function tasks()
     {
