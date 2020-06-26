@@ -24,8 +24,4 @@
       @endforeach
     </div>
 </div>
-
-<!--
-      <li>  <a href="/project/{{$project->id}}">{{$project->project_name}}</a>  - {{$project->project_description}} </li> -->
-
 @endsection
