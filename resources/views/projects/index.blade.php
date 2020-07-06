@@ -1,27 +1,24 @@
 @extends('layout')
 
 @section('content')
-<div class="container-fluid">
-    <h1 class="mt-4">Projects <a type="button" class="btn btn-outline-primary" href="/projects/add"> + Add Project</a></h1>
+<div class="py-4">
+    <span class="text-4xl font-bold pr-2">Projects</span>
+    <a href="/projects/add" class="text-base p-3 border-solid rounded bg-green-500 hover:bg-green-400"><i class="fas fa-plus"></i> Add Project</a>
+</div>
 
-    <div class="row" style="padding-top:30px;">
-      @foreach ($Projects as $project)
-        <div class="col-xl-4 col-md-8">
-            <div class="card mb-5 card-columns">
-                <div class="card-body">
-                  <div class="card-header bg-transparent border-success">
-                    <h2>{{$project->project_name}}</h2>
-                    <span style="font-size:12px;">Date Created: {{$project->created_at}}</span>
-                    <p>{{$project->project_description}}</p>
-                  </div>
-                </div>
-                <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small"  href="/projects/{{$project->id}}"><strong>View Tasks</strong></a>
-                    <div class="small "><i class="fas fa-angle-right"></i></div>
-                </div>
-            </div>
-        </div>
-      @endforeach
+<div class="mt-4 grid sm:grid-cols-2 lg:grid-cols-4">
+  @foreach ($Projects as $project)
+  <div class="max-w-md rounded shadow-lg">
+    <div class="p-4 h-auto justify-between leading-normal">
+      <div class="mb-8">
+        <div class="text-gray-900 font-bold text-xl mb-2">{{$project->project_name}} <span class="text-sm text-gray-600">{{$project->created_at}}</span></div>
+        <p class="text-gray-700 text-base">{{$project->project_description}}</p>
+      </div>
+      <div class="text-sm">
+        <a href="/projects/{{$project->id}}" class="text-sm"><strong>View Tasks <i class="fas fa-arrow-right"></i></strong></a>
+      </div>
     </div>
+  </div>
+  @endforeach
 </div>
 @endsection
