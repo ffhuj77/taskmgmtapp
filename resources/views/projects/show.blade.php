@@ -13,7 +13,7 @@
   <p>Tasks:</p>
 </div>
 <div class="mt-4 grid sm:grid-cols-2 lg:grid-cols-3">
-  @foreach ($projecTasks as $task)
+  @foreach ($unCompletedTasks as $task)
   <div class="max-w-md rounded shadow-lg">
     <div class="p-4 h-auto justify-between leading-normal relative">
       <div class="mb-8 absolute  inset-y-0 right-0">
