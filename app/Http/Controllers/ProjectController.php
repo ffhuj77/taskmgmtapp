@@ -31,7 +31,10 @@ Class ProjectController {
        "projectDesc" => $id['project_description'],
 
        // retrieves all data from tasks table using the id of Project
-       "projecTasks" => $id::find($id['id'])->tasks
+       "unCompletedTasks" => $id::find($id['id'])->tasks()->where('status','=','0')->get(),
+
+       //
+       "CompletedTasks" => $id::find($id['id'])->tasks()->where('status','=','1')->get()
      ]);
   }
 

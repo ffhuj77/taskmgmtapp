@@ -22,7 +22,7 @@
     @if ($errors->has('description'))
       <span class="text-red-700">{{$errors->first('description')}}</span>
     @endif
-    <input type="date" name="deadline_date" rows="5" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white">
+    <input type="date" name="deadline_date" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white">
   <div>
     <input type="submit" name="submit" class="text-base font-bold p-3 border-solid rounded bg-blue-400 hover:bg-blue-300">
   </div>
